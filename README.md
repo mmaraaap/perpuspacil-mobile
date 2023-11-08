@@ -1,6 +1,6 @@
-Nama    : Ammara Pranahiza Widaryati
-NPM     : 2206083022
-Kelas   : PBP B
+**Nama    : Ammara Pranahiza Widaryati**
+**NPM     : 2206083022**
+**Kelas   : PBP B**
 
 TUGAS 7: ELEMEN DASAR FLUTTER
 
