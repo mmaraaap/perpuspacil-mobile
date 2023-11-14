@@ -1,5 +1,6 @@
 import 'package:perpuspacil/screens/booklist_form.dart';
 import 'package:flutter/material.dart';
+import 'package:perpuspacil/screens/booklist_page.dart';
 import 'package:perpuspacil/screens/menu.dart'; // Impor berkas menu.dart jika diperlukan
 import 'package:perpuspacil/widgets/left_drawer.dart'; // Impor drawer yang sudah dibuat sebelumnya
 
@@ -40,7 +41,16 @@ class ShopCard extends StatelessWidget {
                   builder: (context) => ShopFormPage(),
                 ));
           }
+
+          if (item.name == "Lihat Item") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductListPage(productList: productList)
+              ));
+          }
         },
+        
         child: Container(
           // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),

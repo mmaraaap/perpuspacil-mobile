@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:perpuspacil/screens/booklist_page.dart';
 import 'package:perpuspacil/screens/menu.dart';
 import 'package:perpuspacil/screens/booklist_form.dart';
 // TODO: Impor halaman ShopFormPage jika sudah dibuat
@@ -65,6 +66,17 @@ class LeftDrawer extends StatelessWidget {
                   ));
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.view_list),
+            title: const Text('Lihat Item'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductListPage(productList: productList),
+                ));
+            },
+          )
         ],
       ),
     );

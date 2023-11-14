@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:perpuspacil/models/book_models.dart';
+import 'package:perpuspacil/screens/booklist_page.dart';
 import 'package:perpuspacil/widgets/left_drawer.dart'; // Impor drawer yang sudah dibuat sebelumnya
 
+List<Product> productList = [];
+
 class ShopFormPage extends StatefulWidget {
-  const ShopFormPage({Key? key});
+  const ShopFormPage({super.key});
 
   @override
   State<ShopFormPage> createState() => _ShopFormPageState();
@@ -11,7 +15,7 @@ class ShopFormPage extends StatefulWidget {
 class _ShopFormPageState extends State<ShopFormPage> {
   final _formKey = GlobalKey<FormState>();
   String _name = "";
-  int _price = 0;
+  int _amount = 0;
   String _description = "";
 
   @override
@@ -20,7 +24,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'Form Tambah Produk',
+            'Form Tambah Buku',
           ),
         ),
         backgroundColor: Colors.indigo,
@@ -37,8 +41,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Nama Produk",
-                    labelText: "Nama Produk",
+                    hintText: "Nama Buku",
+                    labelText: "Nama Buku",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -60,23 +64,23 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Harga",
-                    labelText: "Harga",
+                    hintText: "Jumlah",
+                    labelText: "Jumlah",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   onChanged: (String? value) {
                     setState(() {
-                      _price = int.parse(value!);
+                      _amount = int.parse(value!);
                     });
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Harga tidak boleh kosong!";
+                      return "Jumlah tidak boleh kosong!";
                     }
                     if (int.tryParse(value) == null) {
-                      return "Harga harus berupa angka!";
+                      return "Jumlah harus berupa angka!";
                     }
                     return null;
                   },
@@ -115,6 +119,13 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        Product newBook = Product(
+                                name: _name,
+                                amount: _amount,
+                                description: _description,
+                              );
+                              productList.add(newBook);
+
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -125,7 +136,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text('Nama: $_name'),
-                                    Text('Harga: $_price'),
+                                    Text('Jumlah: $_amount'),
                                     Text('Deskripsi: $_description'),
                                     // Tambahkan value lainnya jika ada
                                   ],
