@@ -33,7 +33,7 @@ class ShopCard extends StatelessWidget {
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
 
           // Navigate ke route yang sesuai (tergantung jenis tombol)
-          if (item.name == "Tambah Item") {
+          if (item.name == "Tambah Buku") {
             // TODO: Gunakan Navigator.push untuk melakukan navigasi ke MaterialPageRoute yang mencakup ShopFormPage.
             Navigator.pushReplacement(
                 context,
@@ -42,7 +42,7 @@ class ShopCard extends StatelessWidget {
                 ));
           }
 
-          if (item.name == "Lihat Item") {
+          if (item.name == "Lihat Buku") {
             Navigator.push(
               context,
               MaterialPageRoute(

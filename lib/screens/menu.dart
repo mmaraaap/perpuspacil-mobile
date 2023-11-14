@@ -7,8 +7,8 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
 
   final List<ShopItem> items = [
-    ShopItem("Lihat Item", Icons.checklist),
-    ShopItem("Tambah Item", Icons.add_shopping_cart),
+    ShopItem("Lihat Buku", Icons.checklist),
+    ShopItem("Tambah Buku", Icons.add_shopping_cart),
     ShopItem("Logout", Icons.logout),
   ];
 
@@ -17,7 +17,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title:
-            const Text('Shopping List', style: TextStyle(color: Colors.white)),
+            const Text('Book List', style: TextStyle(color: Colors.white)),
       ),
       drawer: const LeftDrawer(),
       body: SingleChildScrollView(

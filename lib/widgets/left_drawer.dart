@@ -56,7 +56,7 @@ class LeftDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.add_shopping_cart),
-            title: const Text('Tambah Item'),
+            title: const Text('Tambah Buku'),
             // Bagian redirection ke ShopFormPage
             onTap: () {
               Navigator.pushReplacement(
@@ -68,7 +68,7 @@ class LeftDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.view_list),
-            title: const Text('Lihat Item'),
+            title: const Text('Lihat Buku'),
             onTap: () {
               Navigator.pushReplacement(
                 context,

@@ -17,7 +17,7 @@ class _ProductListPageState extends State<ProductListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Daftar Parfum'),
+        title: const Text('Daftar Buku'),
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),

@@ -130,7 +130,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: const Text('Produk berhasil tersimpan'),
+                              title: const Text('Buku berhasil tersimpan'),
                               content: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
