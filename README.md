@@ -4,7 +4,7 @@
 
 ## TUGAS 7: ELEMEN DASAR FLUTTER
 
-1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
+**1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?**
 - Stateless Widget
 Stateless Widget adalah widget yang tidak dapat berubah atau statis. Setelah widget ini dibuat dan dijalankan, konfigurasi yang dimuat dalam widget tersebut tidak akan berubah. Misalnya, jika ada widget yang menampilkan teks "Angka : 1", maka isi dari widget tersebut tidak akan berubah dari awal widget tersebut dimuat hingga aplikasi berjalan. Stateless Widget cocok digunakan ketika Anda hanya perlu menampilkan data yang statis atau tidak perlu adanya perubahan nilai.
 
@@ -12,7 +12,7 @@ Stateless Widget adalah widget yang tidak dapat berubah atau statis. Setelah wid
 
 Maka, dapat disimpulkan perbedaan utamanya adalah Stateless Widget ketika ingin membuat widget atau komponen yang sederhana dan bersifat statis. Sedangkan, Stateful Widget ketika ingin membuat widget yang memiliki data atau komponen yang akan berubah-ubah
 
-2. Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
+**2. Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.**
 - MaterialApp: Widget ini adalah widget root yang memberikan banyak fitur yang umum digunakan seperti navigasi, tema, dan localisasi bahasa.
 - Scaffold: Widget ini menyediakan struktur dasar untuk halaman aplikasi Anda, seperti AppBar, BottomNavigationBar, FloatingActionButton, dan Drawer.
 - AppBar: Widget ini biasanya digunakan untuk menampilkan judul aplikasi dan opsi navigasi.
@@ -27,9 +27,7 @@ Maka, dapat disimpulkan perbedaan utamanya adalah Stateless Widget ketika ingin 
 - Icon: Widget ini digunakan untuk menampilkan ikon.
 - ShopCard: Widget khusus yang Anda buat untuk menampilkan informasi tentang item yang dijual.
 
-3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
-Berikut adalah ringkasan dari tutorial yang Anda berikan:
-
+**3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)**
 - Memulai dengan Flutter
 1. Buka Terminal atau Command Prompt dan masuk ke direktori tempat ingin menyimpan proyek Flutter.
 2. Generate proyek Flutter baru sesuai nama proyek, kemudian masuk ke dalam direktori proyek tersebut menggunakan perintah `flutter create <APP_NAME>` dan `cd <APP_NAME>`.
@@ -165,3 +163,98 @@ V
 
 3. Memastikan Refactoring Dilakukan dengan IDE:
     - Pastikan proses pemindahan berkas dilakukan melalui IDE atau text editor dengan ekstensi Flutter
+
+
+
+## TUGAS 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
+
+**1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+Ya, dapat dilakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Ini bisa dilakukan dengan menggunakan fungsi json.decode() dari pustaka dart:convert. Namun, metode ini biasanya lebih baik digunakan untuk proyek kecil atau prototipe cepat. Untuk aplikasi dengan banyak model JSON dan kompleksitas yang lebih tinggi, metode ini bisa menjadi sulit dan memiliki risiko kesalahan yang tinggi. Model dapat membantu memvalidasi dan memahami struktur data.
+
+**2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.**
+Dalam pengembangan aplikasi web dan mobile, cookieRequest adalah ide yang digunakan untuk mengirim atau menerima cookies melalui permintaan HTTP. Cookies biasanya digunakan untuk menyimpan informasi pengguna seperti preferensi atau status login. Instance CookieRequest harus dibagikan ke semua komponen dalam aplikasi Flutter untuk memastikan bahwa setiap permintaan HTTP yang dibuat oleh komponen tersebut menyertakan cookies yang sesuai, sehingga backend dapat mengidentifikasi pengguna yang membuat permintaan tersebut. Ini adalah cara yang dapat digunakan dalam Flutter untuk mempertahankan sesi pengguna saat berinteraksi dengan backend.
+
+**3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.**
+Untuk mendapatkan data dari JSON dan menampilkannya di Flutter, berikut langkah-langkah umumnya: 
+- Buat permintaan HTTP ke endpoint yang akan mengembalikan data JSON menggunakan pustaka HTTP.
+
+- Dapatkan respons dari permintaan dan ubahlah menjadi string.
+
+- Untuk mengubah string JSON menjadi struktur data Dart, biasanya Map atau List, gunakan json.decode() atau web Quicktype.
+
+- Gunakan informasi ini untuk memperbarui status aplikasi.
+
+- Menggunakan widget yang sesuai, tampilkan informasi tersebut di UI Flutter.
+
+**4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.**
+- Pengguna dapat memasukkan informasi akun mereka, seperti nama pengguna dan kata sandi, ke dalam aplikasi Flutter.
+
+- Melalui permintaan HTTP POST, aplikasi Flutter mengirimkan informasi akun ke backend Django.
+
+- Backend Django memverifikasi informasi akun dan menghasilkan token autentikasi, seperti token JWT atau token sesi, dan mengirimkannya kembali ke aplikasi Flutter jika informasi akun tersebut valid.
+
+- Aplikasi Flutter menyimpan token autentikasi tersebut dan menggunakannya untuk setiap permintaan berikutnya ke backend Django. Hal ini memungkinkan backend Django untuk mengidentifikasi pengguna yang mengajukan permintaan.
+
+- Menu Flutter akan ditampilkan berdasarkan hak akses pengguna yang telah diverifikasi setelah proses autentikasi selesai.
+
+**5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.**
+- MaterialApp: Fungsi utama widget ini adalah untuk menyediakan konfigurasi dasar seperti judul aplikasi, tema, dan routing ke halaman utama, yang digunakan sebagai widget utama dalam aplikasi Flutter.
+
+- Provider: widget yang memungkinkan pengelolaan state dan penyediaan objek ke seluruh bagian aplikasi. Dalam tugas ini, instance CookieRequest diberikan ke semua child widgets melalui Provider.
+
+- Scaffold: Widget ini menawarkan komponen seperti appBar, body, dan drawer untuk memberikan struktur dasar halaman. Biasanya digunakan sebagai kerangka halaman utama atau halaman terpisah dalam aplikasi.
+
+- AppBar: bagian yang menampilkan bar navigasi di bagian atas halaman, biasanya berisi judul halaman, tombol kembali, dan aksi-aksi lainnya.
+
+- Drawer: Widget ini memiliki panel navigasi yang dapat ditarik dari sisi layar. Ini dapat menampilkan menu atau navigasi lainnya dalam aplikasi.
+
+- TextField: widget input teks yang memungkinkan pengguna memasukkan teks. Dalam contoh ini, digunakan untuk menerima kata sandi dan kata sandi untuk halaman login.
+
+- ElevatedButton: Ketika ditekan, tombol yang ditingkatkan dapat memulai tindakan seperti melakukan proses login atau tindakan lainnya.
+
+- FutureBuilder: widget yang membuat penanganan data masa depan lebih mudah. Digunakan untuk menampilkan data yang akan diperoleh di masa mendatang dari pengumpulan data ke server atau sumber lainnya.
+
+- ListView.builder: widget yang dapat digunakan untuk menampilkan daftar data dalam bentuk daftar yang dapat digulir. Ini dapat digunakan untuk menampilkan daftar produk atau informasi dalam bentuk dinamis.
+
+- SnackBar: fitur yang menampilkan pesan singkat kepada pengguna. Ini biasanya digunakan untuk memberikan umpan balik setelah tindakan tertentu, seperti login berhasil/gagal atau penambahan produk berhasil/gagal.
+
+- AlertDialog: Widget yang dapat menampilkan dialog dan memberi pengguna opsi seperti konfirmasi atau pesan peringatan.
+
+- Text: Widget teks yang dapat menampilkan informasi seperti nama produk, harga, deskripsi, dan pesan aplikasi.
+
+- Column: Widget yang memungkinkan penyusunan anak widget dalam satu kolom; ini bermanfaat untuk menata tampilan secara vertikal.
+
+- MaterialPageRoute: Digunakan untuk menghubungkan aplikasi antara halaman.
+
+**6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
+**Pada Django:**
+1. Buat django-app ‘authentication’.
+2. Tambahkan ‘authentication’ ke INSTALLED_APPS di settings.py.
+3. Install library ‘django-cors-headers’.
+4. Tambahkan ‘corsheaders’ ke INSTALLED_APPS dan ‘corsheaders.middleware.CorsMiddleware’ ke middleware di settings.py.
+5. Atur variabel CORS dan CSRF di settings.py.
+6. Buat metode view untuk login di authentication/views.py.
+7. Tambahkan URL routing untuk fungsi login di urls.py.
+
+**Pada Flutter:**
+1. Install package ‘provider’ dan ‘pbp_django_auth’.
+2. Modifikasi root widget untuk menyediakan CookieRequest library ke semua child widgets menggunakan Provider.
+3. Buat halaman login.dart yang memungkinkan pengguna untuk login melalui Flutter.
+
+**Pembuatan Model Kustom**
+1. Manfaatkan situs web Quicktype untuk membuat model Dart yang sesuai dengan data JSON yang ada.
+2. Buat file model baru dalam proyek Flutter dan tempelkan kode model yang dihasilkan dari Quicktype.
+
+**Penerapan Fetch Data dari Django ke Flutter**
+1. Tambahkan dependensi package http untuk melakukan HTTP request.
+2. Buat halaman baru untuk menampilkan produk dengan menggunakan FutureBuilder dan fetch data dari Django.
+
+**Integrasi Form Flutter Dengan Layanan Django**
+1. Tambahkan fungsi view baru di views.py Django untuk menerima data dari Flutter.
+2. Hubungkan halaman form di Flutter dengan Django untuk menambahkan produk baru.
+
+**Implementasi Fitur Logout**
+1. Tambahkan metode view untuk logout pada views.py Django.
+2. Implementasikan fungsi logout pada aplikasi Flutter dengan menggunakan request ke endpoint logout yang telah dibuat pada Django.
+
+Pastikan untuk menyesuaikan URL, pengaturan, dan kode sesuai dengan proyek masing-masing.

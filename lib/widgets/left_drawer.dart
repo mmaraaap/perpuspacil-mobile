@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:perpuspacil/screens/booklist_page.dart';
+import 'package:perpuspacil/screens/list_product.dart';
 import 'package:perpuspacil/screens/menu.dart';
 import 'package:perpuspacil/screens/booklist_form.dart';
 // TODO: Impor halaman ShopFormPage jika sudah dibuat
@@ -66,17 +67,30 @@ class LeftDrawer extends StatelessWidget {
                   ));
             },
           ),
+
+          // ListTile(
+          //   leading: const Icon(Icons.view_list),
+          //   title: const Text('Lihat Buku'),
+          //   onTap: () {
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => ProductListPage(productList: productList),
+          //       ));
+          //   },
+          // )
+
           ListTile(
-            leading: const Icon(Icons.view_list),
-            title: const Text('Lihat Buku'),
+            leading: const Icon(Icons.shopping_basket),
+            title: const Text('Daftar Produk'),
             onTap: () {
-              Navigator.pushReplacement(
+                // Route menu ke halaman produk
+                Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => ProductListPage(productList: productList),
-                ));
+                MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
             },
-          )
+        ),
         ],
       ),
     );
