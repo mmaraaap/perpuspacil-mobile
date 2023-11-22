@@ -1,6 +1,7 @@
 import 'package:perpuspacil/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:perpuspacil/screens/register.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -106,6 +107,17 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             child: const Text('Login'),
                         ),
+                        const SizedBox(height: 24.0),
+
+
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => RegistrationPage()),
+                                    );
+                          },
+                          child: const Text("Register"))
                     ],
                 ),
             ),
